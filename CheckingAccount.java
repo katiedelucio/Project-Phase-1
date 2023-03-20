@@ -26,7 +26,7 @@ public class CheckingAccount extends Account {
 
 //make a withdraw - limit if higher than balance and count the transaction
 	public void withdraw(double x) {
-		if (x < this.balance) {
+		if (x <= this.balance) {
 			this.balance = this.balance - x;
 		} else {
 			System.out.println("Changing withdraw amount to available balance of $" + this.balance + "\n");
@@ -44,9 +44,11 @@ public class CheckingAccount extends Account {
 	@Override
 //calculates monthly fees
 	public double deductMonthlyFee() {
-
-		double fee = (transactionFee * (transactionCount - freeTransactions));
-		double total = this.balance - fee;
+double fee = 0;
+double total = 0;
+if (transactionCount > 2)
+		fee = (transactionFee * (transactionCount - freeTransactions));
+		total = this.balance - fee;
 		return total;
 	}
 

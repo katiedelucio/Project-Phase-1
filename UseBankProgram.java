@@ -156,8 +156,18 @@ public class UseBankProgram {
 	}
 
 //to display the bank stats for option 9
+	//sum - works
+	//count of zero balance accounts
+	//average balance 
+	//largest balance
 	public static void bankStats(ArrayList<Account> accounts) {
+		int count = 0;
 		System.out.println("Sum of accounts in bank are " + accounts.size());
+		for (Account a: accounts) {
+			if (a.getBalance()<= 0)
+				count++;
+			System.out.println("The number of accounts with zero balance is: " + count);
+		}
 
 	}
 

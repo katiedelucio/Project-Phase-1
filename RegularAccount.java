@@ -2,7 +2,7 @@
 public class RegularAccount extends Account {
 	final double interest = 0.06;
 	final double maintFee = 10.00; // monthly fee
-	//private double balance;
+	
 
 	/**
 	 * 
@@ -24,7 +24,7 @@ public class RegularAccount extends Account {
 
 //make a withdraw - limit if higher than balance
 	public void withdraw(double x) {
-		if (x < this.balance) {
+		if (x <= this.balance) {
 			this.balance = this.balance - x;
 		} else {
 			System.out.println("Changing withdraw amount to available balance of $" + this.balance + "\n");
