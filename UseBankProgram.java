@@ -161,13 +161,30 @@ public class UseBankProgram {
 	//average balance 
 	//largest balance
 	public static void bankStats(ArrayList<Account> accounts) {
-		int count = 0;
-		System.out.println("Sum of accounts in bank are " + accounts.size());
+		double largestBalance = accounts.get(0).getBalance();
+		double sum = 0;
+		double average;
+		Account largestBalanceAccount = null;
+		ArrayList<Account> zeroBalanceAccounts = new ArrayList<Account>();
+		
 		for (Account a: accounts) {
-			if (a.getBalance()<= 0)
-				count++;
-			System.out.println("The number of accounts with zero balance is: " + count);
+			sum+= a.getBalance();
+			if(a.getBalance()<=0) {
+				zeroBalanceAccounts.add(a);
+			}
+			if (a.getBalance()> largestBalance) {
+				largestBalance = a.getBalance();
+				largestBalanceAccount = a;
+			}
+			average = sum/accounts.size();
+			System.out.println("The sum of all accounts: $" +sum);	
+			System.out.println("The number of accounts with zero balance is: " + zeroBalanceAccounts.size());
+			System.out.println("The average balance of all accounts: $" + average);
+			System.out.println("The largest balance: $" + largestBalance);
 		}
+		
+	
+		
 
 	}
 
